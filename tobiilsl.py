@@ -26,12 +26,12 @@ import sys
 # Find Eye Tracker and Apply License (edit to suit actual tracker serial no)
 ft = tr.find_all_eyetrackers()
 if len(ft) == 0:
-    print "No Eye Trackers found!?"
+    print("No Eye Trackers found!?")
     exit(1)
 
 # Pick first tracker
 mt = ft[0]
-print "Found Tobii Tracker at '%s'" % (mt.address)
+print("Found Tobii Tracker at '%s'" % (mt.address))
 
 
 # Apply license
@@ -41,12 +41,12 @@ if license_file != "":
 
         res = mt.apply_licenses(license)
         if len(res) == 0:
-            print "Successfully applied license from single key"
+            print("Successfully applied license from single key")
         else:
             print("Failed to apply license from single key. Validation result: %s." % (res[0].validation_result))
             exit
 else:
-    print "No license file installed"
+    print("No license file installed")
 
 channels = 31 # count of the below channels, incl. those that are 3 or 2 long
 gaze_stuff = [
@@ -122,7 +122,7 @@ def gaze_data_callback(gaze_data):
 
 
     # for k in sorted(gaze_data.keys()):
-    #     print ' ' + k + ': ' +  str(gaze_data[k])
+    #     print(' ' + k + ': ' +  str(gaze_data[k]))
 
     try:
         global last_report
@@ -139,7 +139,7 @@ def gaze_data_callback(gaze_data):
             last_report = sts
         N += 1
 
-        # print unpack_gaze_data(gaze_data)
+        # print(unpack_gaze_data(gaze_data))
     except:
         print("Error in callback: ")
         print(sys.exc_info())
@@ -189,7 +189,7 @@ def setup_lsl():
 outlet = setup_lsl()
 
 # Main loop; run until escape is pressed
-print "%14.3f: LSL Running; press CTRL-C repeatedly to stop" % lsl.local_clock()
+print("%14.3f: LSL Running; press CTRL-C repeatedly to stop" % lsl.local_clock())
 start_gaze_tracking()
 try:
     while not halted:
@@ -202,11 +202,11 @@ try:
         if halted:
             break
 
-        # print lsl.local_clock()
+        # print(lsl.local_clock())
 
 except:
-    print "Halting..."
+    print("Halting...")
 
-print "terminating tracking now"
+print("terminating tracking now")
 end_gaze_tracking()
 
