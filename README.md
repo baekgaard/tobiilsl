@@ -13,8 +13,21 @@ outlet that pushes data from the eye tracker onto the lab streaming layer.
 Use
 ---
 
-To use it, simply install the dependencies (python 2.7 and the libraries pylsl, tobii_research and numpy in particular)
-and type from a command prompt:
+To use it, simply install the dependencies (this works with python 3.10.x and the libraries pylsl, tobii_research 1.11.0 and numpy in particular). 
+
+Thanks to Madis, you can put this into your ```requirements.txt``` file:
+
+    numpy==1.26.4
+    pylsl==1.16.2
+    tobii_research==1.11.0
+
+and type e.g.:
+
+    pip install -r requirements.txt
+
+or the equivalent.
+
+To then start, type from a command prompt:
 
     python ./tobiilsl.py
 
