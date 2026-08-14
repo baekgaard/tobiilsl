@@ -48,7 +48,7 @@ if license_file != "":
 else:
     print("No license file installed")
 
-channels = 31 # count of the below channels, incl. those that are 3 or 2 long
+channels = 33 # count of the below channels, incl. those that are 3 or 2 long
 gaze_stuff = [
     ('device_time_stamp', 1),
 
@@ -74,7 +74,9 @@ gaze_stuff = [
     ('right_pupil_validity',  1),
 
     ('left_pupil_diameter',  1),
-    ('right_pupil_diameter',  1)
+    ('right_pupil_diameter',  1),
+    ('left_eye_openness', 1),
+    ('right_eye_openness', 1)
 ]
     
 
